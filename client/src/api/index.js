@@ -1,5 +1,6 @@
 import axios from "axios";
 const baseURL = process.env.baseURL || "https://musicophile-lake.vercel.app/";
+console.log('baseURL: ', baseURL);
 
 export const validateUser=async(token)=>{
     try{

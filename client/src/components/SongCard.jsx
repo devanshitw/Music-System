@@ -71,7 +71,7 @@ const addToContext=() =>{
         '>
             <motion.img 
             whileHover={{scale:1.05}}
-            src={data.imageURL} className='w-full rounded-lg object-cover h-[143px] '/>
+            src={data?.imageURL} className='w-full rounded-lg object-cover h-[143px] '/>
         </div>
         <p className='text-base text-center text-headingColor font-semibold my-2'>
             {data.name.length>25?`${data.name.slice(0,25)}..`:data.name}

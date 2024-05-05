@@ -35,7 +35,7 @@ navigate("/login",{replace:true})
       onMouseEnter={()=> setisMenu(true)}
       onMouseLeave={()=>setisMenu(false)}
       className='flex items-center ml-auto cursor-pointer gap-2 relative'>
-        <img src={user?.user.imageURL} className='w-12 h-12 min-w-[44px] object-cover rounded-full shadow-lg' alt='' referrerPolicy='no-referrer'/>
+        <img src={user?.user?.imageURL} className='w-12 h-12 min-w-[44px] object-cover rounded-full shadow-lg' alt='' referrerPolicy='no-referrer'/>
         <div className='flex flex-col'>
             
             <p className=' text-xl text-purple-700 font-semibold'>{user?.user?.name}</p>

@@ -49,7 +49,7 @@ const [isUserRoleUpdated, setIsUserRoleUpdated] = useState(false)
         </motion.div>
         )}
         <div className='w-275 min-w-[160px] flex items-center justify-center'>
-          <img src={data.imageURL} referrerPolicy="no-referrer" alt="" className='w-10 h-10 object-cover rounded-md min-w-[40px] shadow-md' />
+          <img src={data?.imageURL} referrerPolicy="no-referrer" alt="" className='w-10 h-10 object-cover rounded-md min-w-[40px] shadow-md' />
     </div>
 
     <p className='text-textColor text-base w-275 min-w-[160px] text-center'>{data.name}</p>

@@ -52,7 +52,7 @@ const FilterButtons = ({filterData,flag}) => {
                 >
 
                     {(flag==="Artist"|| flag==="Albums")&&(
-                        <img src={data.imageURL} className='w-8 min-w-[32px]h-8 rounded-full object-cover' />
+                        <img src={data?.imageURL} className='w-8 min-w-[32px]h-8 rounded-full object-cover' />
                     )}
                     <p className='w-full'>
                         {data.name.length>15?`${data.name.slice(0,15)}...`:data.name}
