@@ -1,35 +1,41 @@
 const express = require("express");
-const cors = require("cors"); // Move this line above app.use(cors()) and app.use(cors({origin:true}));
+const cors = require("cors");
 const app = express();
 require("dotenv/config");
 
 const { default: mongoose } = require("mongoose");
 
-app.use(cors()); // This line should come after the cors import
-app.use(cors({ origin: true })); // This line should come after the cors import
+// Enable CORS middleware
+app.use(cors());
+
+// Parse JSON bodies
 app.use(express.json());
 
+// Define routes
 app.get("/", (req, res) => {
     return res.json("Holla");
 });
 
-const userRoute=require("./routes/auth");
-app.use("/api/users/",userRoute);
+const userRoute = require("./routes/auth");
+app.use("/api/users/", userRoute);
 
-const artistsRoutes=require("./routes/artist");
-app.use("/api/artists/",artistsRoutes);
+const artistsRoutes = require("./routes/artist");
+app.use("/api/artists/", artistsRoutes);
 
-const albumRoutes=require("./routes/albums");
-app.use("/api/albums",albumRoutes);
+const albumRoutes = require("./routes/albums");
+app.use("/api/albums", albumRoutes);
 
-const songRoutes=require("./routes/songs");
-app.use("/api/songs/",songRoutes);
+const songRoutes = require("./routes/songs");
+app.use("/api/songs/", songRoutes);
 
-mongoose.connect(process.env.DB_STRING,{useNewUrlParser:true});
+// Connect to MongoDB
+mongoose.connect(process.env.DB_STRING, { useNewUrlParser: true });
 mongoose.connection
-.once("open",()=>console.log("Connected"))
-.on("error",(error)=>{
-    console.log('ERROR:${error}');
-});
+    .once("open", () => console.log("Connected to MongoDB"))
+    .on("error", (error) => {
+        console.log(`MongoDB connection error: ${error}`);
+    });
 
-app.listen(4000, () => console.log("Listening"));
+// Start the server
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
