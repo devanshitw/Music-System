@@ -1,14 +1,11 @@
 const express = require("express");
-const cors = require("cors");
+const cors = require("cors"); 
 const app = express();
 require("dotenv/config");
 
 const { default: mongoose } = require("mongoose");
 
-// Enable CORS middleware
-app.use(cors());
-
-// Parse JSON bodies
+app.use(cors()); // Enable CORS for all routes
 app.use(express.json());
 
 // Define routes
