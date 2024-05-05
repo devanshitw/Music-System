@@ -1,11 +1,12 @@
-const express =require("express");
-const app=express();
+const express = require("express");
+const cors = require("cors"); // Move this line above app.use(cors()) and app.use(cors({origin:true}));
+const app = express();
 require("dotenv/config");
 
-const cors = require("cors");
-const {default : mongoose}= require("mongoose");
+const { default: mongoose } = require("mongoose");
 
-app.use(cors({origin:true}));
+app.use(cors()); // This line should come after the cors import
+app.use(cors({ origin: true })); // This line should come after the cors import
 app.use(express.json());
 
 app.get("/", (req, res) => {
