@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = process.env.baseURL || "https://musicophile-lake.vercel.app/";
+const baseURL = process.env.baseURL || "https://music-system-nine.vercel.app/";
 console.log('baseURL: ', baseURL);
 
 export const validateUser=async(token)=>{
@@ -16,7 +16,6 @@ export const validateUser=async(token)=>{
 export const getAllUsers = async () => {
     try{
         const res= await axios.get(baseURL+'api/users/getUsers');
-        console.log('res: ', res);
         return res.data;
     }
     catch(error){
