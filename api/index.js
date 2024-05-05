@@ -1,16 +1,19 @@
+// index.js
 const express = require("express");
-const cors = require("cors"); 
+const cors = require("cors");
 const app = express();
 require("dotenv/config");
 
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
+const allowCors = require("./cors"); // Import the allowCors middleware
 
-app.use(cors()); // Enable CORS for all routes
+app.use(allowCors); // Use the allowCors middleware
+
 app.use(express.json());
 
 // Define routes
 app.get("/", (req, res) => {
-    return res.json("Holla");
+  return res.json("Holla");
 });
 
 const userRoute = require("./routes/auth");
