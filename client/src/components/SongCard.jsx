@@ -20,7 +20,6 @@ const SongCard = ({data,index,type}) => {
             deleteSongById(data._id).then((res)=>{
             //         if(!allSongs){
                       getAllSongs().then((data) =>{
-                        console.log(data.songs);
                         dispath({
                           type:actionType.SET_ALL_SONGS,
                           allSongs:data.song,
