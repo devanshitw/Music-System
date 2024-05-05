@@ -16,7 +16,6 @@ const DashboardSongs = () => {
   useEffect(() => {
     if(!allSongs){
       getAllSongs().then((data) =>{
-        console.log(data.songs);
         dispath({
           type:actionType.SET_ALL_SONGS,
           allSongs:data.song,

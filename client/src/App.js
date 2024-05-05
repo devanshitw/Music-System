@@ -20,9 +20,7 @@ const App = () => {
     firebaseAuth.onAuthStateChanged((userCred)=>{
     if(userCred){
       userCred.getIdToken().then((token)=>{
-        // console.log(token);
         validateUser(token).then((data)=>{
-          // console.log(data);
           dispatch({
             type:actionType.SET_USER,
             user:data,

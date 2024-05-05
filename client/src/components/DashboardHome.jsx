@@ -31,7 +31,6 @@ const DashboardHome = () => {
   useEffect(() => {
     if(!allUsers){
       getAllUsers().then((data)=>{
-        // console.log(data)
         dispatch({
           type:actionType.SET_ALL_USERS,
           allUsers:data.data,
@@ -40,7 +39,6 @@ const DashboardHome = () => {
     }
     if(!allArtists){
       getAllArtists().then((data)=>{
-        // console.log(data)
         dispatch({
           type:actionType.SET_ALL_ARTISTS,
           allArtists:data.artist
@@ -49,7 +47,6 @@ const DashboardHome = () => {
     }
     if(!allAlbums){
       getAllAlbums().then((data)=>{
-        // console.log(data)
         dispatch({
           type:actionType.SET_ALL_ALBUMS,
           allAlbums:data.album
@@ -59,7 +56,6 @@ const DashboardHome = () => {
     }
     if(!allSongs){
       getAllSongs().then((data)=>{
-        // console.log(data)
         dispatch({
           type:actionType.SET_ALL_SONGS,
           allSongs:data.song

@@ -51,7 +51,6 @@ const SongCard = ({data,index,type}) => {
 }
 }
 const addToContext=() =>{
-    // console.log(type)
     if(!isSongPlaying){
         dispath({
             type:actionType.SET_ISSONG_PLAYING,

@@ -14,7 +14,6 @@ const Login = ({setAuth}) => {
   const navigate=useNavigate();
   const [{user},dispatch]=useStateValue()
   const loginWithGoogle =async () => {
-    // console.log("holla")
     await signInWithPopup(firebaseAuth,provider).then((userCred)=>{
       if(userCred){
         setAuth(true);
@@ -22,7 +21,6 @@ const Login = ({setAuth}) => {
         firebaseAuth.onAuthStateChanged((userCred)=>{
           if(userCred){
             userCred.getIdToken().then((token)=>{
-              // console.log(token);
               validateUser(token).then((data)=>{
                 dispatch({
                   type:actionType.SET_USER,

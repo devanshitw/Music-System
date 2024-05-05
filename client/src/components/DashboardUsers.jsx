@@ -13,7 +13,6 @@ const [isUserRoleUpdated, setIsUserRoleUpdated] = useState(false)
 
   const updateUserRole =(userId,role) =>{
     setIsUserRoleUpdated(false);
-    // console.log(userId,role);
     changingUserRole(userId,role).then((res)=>{
       if(res){
         getAllUsers().then((data)=>{
@@ -26,7 +25,6 @@ const [isUserRoleUpdated, setIsUserRoleUpdated] = useState(false)
     })
   };
   const deleteUser=(userId)=>{
-    // console.log(userId)
     removeUser(userId).then((res)=>{
       if(res){
         getAllUsers().then((data)=>{
