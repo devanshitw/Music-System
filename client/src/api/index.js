@@ -1,8 +1,13 @@
 import axios from "axios";
-const baseURL ="https://musicophile-beta.vercel.app/";
+const baseURL = process.env.baseURL;
+
+const api = axios.create({
+    baseURL,
+});
+
 export const validateUser=async(token)=>{
     try{
-        const res=await axios.get('https://musicophile-beta.vercel.app/api/users/login',{
+        const res=await axios.get('api/users/login',{
             headers:{
                 Authorization:"Bearer " + token,
             },
@@ -13,7 +18,7 @@ export const validateUser=async(token)=>{
 
 export const getAllUsers = async () => {
     try{
-        const res= await axios.get('https://musicophile-beta.vercel.app/api/users/getUsers');
+        const res= await axios.get('api/users/getUsers');
         return res.data;
     }
     catch(error){
@@ -22,7 +27,7 @@ export const getAllUsers = async () => {
 };
 export const getAllArtists =async () => {
     try{
-        const res= await axios.get('https://musicophile-beta.vercel.app/api/artists/getAll');
+        const res= await axios.get('api/artists/getAll');
         return res.data;
     }
     catch(error){
@@ -31,7 +36,7 @@ export const getAllArtists =async () => {
 };
 export const getAllAlbums =async () => {
     try{
-        const res= await axios.get('https://musicophile-beta.vercel.app/api/albums/getAll');
+        const res= await axios.get('api/albums/getAll');
         return res.data;
     }
     catch(error){
@@ -40,7 +45,7 @@ export const getAllAlbums =async () => {
 }
 export const getAllSongs =async () => {
     try{
-        const res= await axios.get('https://musicophile-beta.vercel.app/api/songs/getAll');
+        const res= await axios.get('api/songs/getAll');
         return res.data;
     }
     catch(error){
@@ -49,7 +54,7 @@ export const getAllSongs =async () => {
 };
 export const changingUserRole =async (userId,role) =>{
     try {
-        const res=axios.put(`https://musicophile-beta.vercel.app/api/users/updateRole/${userId}`,{data: {role :role},
+        const res=axios.put(`api/users/updateRole/${userId}`,{data: {role :role},
     });
     return res;
     } catch (error) {
@@ -59,7 +64,7 @@ export const changingUserRole =async (userId,role) =>{
 
 export const removeUser =async (userId)=>{
     try {
-        const res=axios.delete(`https://musicophile-beta.vercel.app/api/users/deleteUser/${userId}`);
+        const res=axios.delete(`api/users/deleteUser/${userId}`);
         return res;
     } catch (error) {
         return null;
@@ -67,7 +72,7 @@ export const removeUser =async (userId)=>{
 }
 export const saveNewSong = async (data) => {
     try {
-      const res = axios.post(`https://musicophile-beta.vercel.app/api/songs/save`, { ...data });
+      const res = axios.post(`api/songs/save`, { ...data });
       return (await res).data.savedSong;
     } catch (error) {
       return null;
@@ -76,7 +81,7 @@ export const saveNewSong = async (data) => {
 
 export const saveNewArtist =async(data)=>{
     try {
-        const res = axios.post('https://musicophile-beta.vercel.app/api/artists/save', { ...data });
+        const res = axios.post('api/artists/save', { ...data });
         return (await res).data.savedAlbum;
       } catch (error) {
         return null;
@@ -84,7 +89,7 @@ export const saveNewArtist =async(data)=>{
 }
 export const saveNewAlbum =async(data)=>{
     try {
-        const res = axios.post('https://musicophile-beta.vercel.app/api/albums/save', { ...data });
+        const res = axios.post('api/albums/save', { ...data });
         return (await res).data.savedArtist;
       } catch (error) {
         return null;
@@ -92,7 +97,7 @@ export const saveNewAlbum =async(data)=>{
 }
 export const deleteSongById=async(id)=>{
     try {
-        const res =axios.delete(`https://musicophile-beta.vercel.app/api/songs/delete/${id}`);
+        const res =axios.delete(`api/songs/delete/${id}`);
         return res
     } catch (error) {
         return null        
@@ -100,7 +105,7 @@ export const deleteSongById=async(id)=>{
 }
 export const deleteAlbumById=async(id)=>{
     try {
-        const res =axios.delete(`https://musicophile-beta.vercel.app/api/albums/delete/${id}`);
+        const res =axios.delete(`api/albums/delete/${id}`);
         return res
     } catch (error) {
         return null        
@@ -108,7 +113,7 @@ export const deleteAlbumById=async(id)=>{
 }
 export const deleteArtistById=async(id)=>{
     try {
-        const res =axios.delete(`https://musicophile-beta.vercel.app/api/artists/delete/${id}`);
+        const res =axios.delete(`api/artists/delete/${id}`);
         return res
     } catch (error) {
         return null        
