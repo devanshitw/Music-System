@@ -5,9 +5,8 @@ const app = express();
 require("dotenv/config");
 
 const mongoose = require("mongoose");
-const allowCors = require("./cors"); // Import the allowCors middleware
 
-app.use(allowCors); // Use the allowCors middleware
+app.use(cors()); // Use the allowCors middleware
 
 app.use(express.json());
 
